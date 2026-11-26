@@ -77,3 +77,19 @@ Append new versions below the existing milestones and preserve prior entries.
   still dropped.
 - Kotlin compile and on-device test not yet done - must be verified by GitHub Actions build.
   An Android device is needed to verify live relay behavior after the build.
+
+## v0.7 · 2026-11-26
+
+- Added `tools/analyze_pcap.py` (Python 3.10+ standard library only, no
+  tshark/scapy): top remote IPs/ports by packets and bytes, UDP vs TCP
+  split, per-flow packet sizes and timing/pps, likely game-server flows,
+  per-second summaries, with `--json` / `--top` / `--local-ip` options.
+- Added `tools/gen_test_pcap.py` to generate a synthetic PCAP with known
+  ground truth for testing the analyzer.
+- Verified on synthetic PCAPs: output matches the known input exactly
+  (231 packets / 35,188 bytes, top flow 200 packets / 50.25 pps, only the
+  high-rate UDP flow flagged as likely game server); empty, truncated
+  and garbage files do not crash.
+- Known limits: classic PCAP only, not pcapng; the game-server heuristic
+  (>= 50 packets, >= 10 pps, >= 2 s UDP) is unvalidated on real Honor of
+  Kings traffic until a real game capture is analyzed.
