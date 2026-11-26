@@ -1,1 +1,142 @@
-IyBDaGFuZ2Vsb2cKCkFwcGVuZCBuZXcgdmVyc2lvbnMgYmVsb3cgdGhlIGV4aXN0aW5nIG1pbGVzdG9uZXMgYW5kIHByZXNlcnZlIHByaW9yIGVudHJpZXMuCgojIyB2MC4xIMK3IDIwMjYtMTEtMjYKCi0gRG9jdW1lbnRlZCB0aGUgcmVmZXJlbmNlIGFyY2hpdGVjdHVyZSwgdW5yZXNvbHZlZCBwcm90b2NvbCBxdWVzdGlvbnMgYW5kCiAgdjEgQVBJIGRlc2lnbiBpbiBgTEVBUk5JTkcubWRgIGFuZCBgREVTSUdOLm1kYC4KLSBWZXJpZmljYXRpb24gc2NvcGUgd2FzIGRvY3VtZW50YXRpb24gcmV2aWV3IGFnYWluc3QgdGhlIHN1cHBsaWVkIEFQSwogIG9ic2VydmF0aW9ucy4gTm8gZXhlY3V0YWJsZSB0ZXN0cyB3ZXJlIHJlY29yZGVkIGZvciB0aGlzIG1pbGVzdG9uZS4KCiMjIHYwLjIgwrcgMjAyNi0xMS0yNgoKLSBBZGRlZCB0aGUgUHl0aG9uIEhUVFAgc2tlbGV0b24sIHBhcnNlciBzdHViLCBZQU1MIGNvbmZpZ3VyYXRpb24gYW5kIHN5c3RlbWQKICB1bml0IHVuZGVyIGBzZXJ2ZXIvYCwgd2l0aCBsb2NhbCBzdGFydHVwIGluIGBSRUFETUUubWRgIGFuZCBVYnVudHUKICBpbnN0YWxsYXRpb24gaW4gYERFUExPWS5tZGAuCi0gUHl0aG9uIGNvbXBpbGF0aW9uLCBZQU1MIGRlZmF1bHRzLCBlbnZpcm9ubWVudCBvdmVycmlkZXMgYW5kIGluLW1lbW9yeSBIVFRQCiAgY2hlY2tzIHBhc3NlZC4gU3lzdGVtZCB1bml0IHZlcmlmaWNhdGlvbiBleGl0ZWQgemVybyB3aXRoIHVucmVsYXRlZCBob3N0CiAgdGltZXIgZGlhZ25vc3RpY3MuIFNvY2tldCBjcmVhdGlvbiB3YXMgZGVuaWVkIGFuZCBsb2NhbCBjdXJsIHJldHVybmVkIDcuCgojIyB2MC4zIMK3IDIwMjYtMTEtMjYKCi0gRG9jdW1lbnRlZCB0aGUgQmVpamluZyB0YXJnZXQgYXQgYDM5Ljk2LjYwLjEyNzoxODA4MWAsIHdyYXBwZXItYmFzZWQKICBpbnN0YWxsYXRpb24gYW5kIGhlYWx0aCBjaGVja3MuIEFkZGVkIHRoaXMgY2hhbmdlbG9nIGFuZCByb2xsYmFjayBndWlkYW5jZS4KLSBSZS1yYW4gUHl0aG9uIGNvbXBpbGF0aW9uLCBjb25maWd1cmF0aW9uIGFuZCBvdmVycmlkZSBjaGVja3MsIHN5c3RlbWQKICB2ZXJpZmljYXRpb24gYW5kIGluLW1lbW9yeSBIVFRQIHJlcXVlc3RzLiBEZXBsb3ltZW50IHNoZWxsIHN5bnRheCBhbmQgYXJjaGl2ZQogIGNvbnRlbnRzIGFsc28gcGFzc2VkIGxvY2FsIGNoZWNrcy4gVGhlIHNhbmRib3ggZGVuaWVkCiAgbG9jYWwgc29ja2V0IGNyZWF0aW9uIGFuZCBsb2NhbCBoZWFsdGggY3VybCByZXR1cm5lZCA3LiBCZWlqaW5nIHJlbWFpbnMKICBwZW5kaW5nIG9wZXJhdG9yIHZlcmlmaWNhdGlvbi4KCiMjIHYwLjQgwrcgMjAyNi0xMS0yNgoKLSBBZGRlZCBBbmRyb2lkIGNhcHR1cmUgYXBwIGBhbmRyb2lkL2AgKEtpdGUgQ2FwdHVyZSwgY29tLmtpdGUuY2FwdHVyZSwKICBtaW5TZGsgMjYsIHRhcmdldFNkayAzNCk6IFZwblNlcnZpY2UgVFVOLCBVRFAtb25seSByZWxheSwgdXBsb2FkIGJhdGNoZXMKICB0byAvYXBpL2NsaWVudC91cGxvYWQsIDJzIC9zbmFwc2hvdCBwb2xsaW5nLCBsb2NhbCBQQ0FQIGV4cG9ydC4KLSBBZGRlZCBHaXRIdWIgQWN0aW9ucyB3b3JrZmxvdyBgLmdpdGh1Yi93b3JrZmxvd3MvYnVpbGQtYXBrLnltbGAgdG8gYnVpbGQKICB0aGUgZGVidWcgQVBLIChraXRlLWNhcHR1cmUtZGVidWcgYXJ0aWZhY3QpLiBGaXhlZCBzZGttYW5hZ2VyIFBBVEggd2l0aAogIGFuZHJvaWQtYWN0aW9ucy9zZXR1cC1hbmRyb2lkIGluIE11c2UgcmV2aWV3IGJlZm9yZSBwdXNoaW5nLgotIEJlaWppbmcgZGVwbG95bWVudCB2ZXJpZmllZCAyMDI2LTExLTI2IH4yMToyNyBhZnRlciBzZWN1cml0eSBncm91cCBUQ1AKICAxODA4MSBvcGVuZWQ6IC9oZWFsdGggb2ssIHVwbG9hZCBhY2NlcHRlZCAxIC8gcmV2aXNpb24gMS4KLSBLbm93biBsaW1pdGF0aW9uOiBJUHY0IFRDUCBmcm9tIHRoZSBzZWxlY3RlZCBhcHAgaXMgQkxPQ0tFRCBkdXJpbmcKICBjYXB0dXJlLCBvbmx5IHVuZnJhZ21lbnRlZCBJUHY0IFVEUCBpcyByZWxheWVkOyBIb25vciBvZiBLaW5ncyBsb2dpbgogIChUQ1ApIG1heSBmYWlsIHdoaWxlIGNhcHR1cmluZy4gS290bGluIGNvbXBpbGUsIEFjdGlvbnMgYnVpbGQgYW5kCiAgb24tZGV2aWNlIGJlaGF2aW91ciBhcmUgdW50ZXN0ZWQgdW50aWwgdGhlIGZpcnN0IEFjdGlvbnMgcnVuLgoKIyMgdjAuNSDCtyAyMDI2LTExLTI2CgotIFBlcnNpc3RlZCBhY2NlcHRlZCB1cGxvYWRzIGFzIGRhaWx5IFVUQyBKU09OTCBjYXB0dXJlcyB1bmRlcgogIGAvdmFyL2xpYi9ob2stcmFkYXJgLCBwcm92aXNpb25lZCBieSB0aGUgc3lzdGVtZCB1bml0J3MgYFN0YXRlRGlyZWN0b3J5YC4KLSBBZGRlZCBjb25maWd1cmFibGUgMTAwIE1pQiBwZXItZmlsZSByb3RhdGlvbiBhbmQgNTAwIE1pQiB0b3RhbCByZXRlbnRpb24sCiAgd2l0aCBudW1lcmljIHN1ZmZpeGVzIGFuZCBvbGRlc3QtZmlsZSBkZWxldGlvbi4KLSBBZGRlZCBgR0VUIC9hcGkvY2FwdHVyZXNgIHRvIGxpc3QgZmlsZXMgYW5kIGBHRVQgL2FwaS9jYXB0dXJlcy88bmFtZT5gCiAgdG8gZG93bmxvYWQgdGhlbSBhcyBOREpTT04uCi0gVmVyaWZpZWQgbGl2ZSBvbiBCZWlqaW5nIDM5Ljk2LjYwLjEyNzoxODA4MTogdXBsb2FkIGFjY2VwdGVkIDEgLwogIHJldmlzaW9uIDEsIGNhcHR1cmUgZmlsZSBvbiBkaXNrLCBzdXJ2aXZlcyBzZXJ2aWNlIHJlc3RhcnQuCgojIyB2MC42IMK3IDIwMjYtMTEtMjYKCi0gQWRkZWQgYW4gSVB2NCBUQ1AgcmVsYXkgZm9yIHRoZSBzZWxlY3RlZCBhcHAuIEFuIGFwcCBTWU4gb3BlbnMgYQogIHByb3RlY3RlZCBzb2NrZXQgdG8gdGhlIG9yaWdpbmFsIGRlc3RpbmF0aW9uIHdpdGggYSAxMC1zZWNvbmQgY29ubmVjdAogIHRpbWVvdXQuIEEgc3VjY2Vzc2Z1bCBjb25uZWN0IHNlbmRzIFNZTi1BQ0sgd2l0aCBNU1MgMTQ2MCBhbmQgYQogIDY1LDUzNS1ieXRlIHJlY2VpdmUgd2luZG93LiBUaGUgYXBwIEFDSyBlc3RhYmxpc2hlcyB0aGUgZmxvdy4gQXBwIGFuZAogIHJlbW90ZSBGSU5zIGhhbGYtY2xvc2UgdGhlaXIgcmVzcGVjdGl2ZSBkaXJlY3Rpb25zLCBhbmQgcmVzZXRzIG9yCiAgc29ja2V0IGVycm9ycyB0ZWFyIGRvd24gdGhlIGZsb3cuCi0gTGltaXRlZCB0aGUgcmVsYXkgdG8gMzIgY29uY3VycmVudCBjb25uZWN0aW9ucyB3aXRoIG9uZSB3b3JrZXIgcGVyCiAgY29ubmVjdGlvbiBhbmQgYSA2MC1zZWNvbmQgaWRsZSB0aW1lb3V0IGluIGVpdGhlciBkaXJlY3Rpb24uIEV4Y2VzcwogIGNvbm5lY3RzIGFuZCBxdWV1ZSBvdmVyZmxvdyByZXNldCB0aGUgZmxvdy4gVGhlIHJlbGF5IGRyb3BzIGFuZCByZS1BQ0tzCiAgZHVwbGljYXRlIG9yIG91dC1vZi1vcmRlciBhcHAgZGF0YSBhbmQgY2FwcyBlYWNoIGFwcCBxdWV1ZSBhdCA2NAogIE1UVS1zaXplZCBzZWdtZW50cy4gUmVtb3RlIGRhdGEgZml0cyBNVFUgMTUwMCwgdGhlIHBlZXIgTVNTLCBhbmQgdGhlCiAgcGVlciB3aW5kb3cuIFRoZSBUVU4gbGVnIHJlcGVhdHMgU1lOLUFDSyBvbiBkdXBsaWNhdGUgU1lOIGFuZCBvbWl0cwogIGRhdGEgYW5kIEZJTiByZXRyYW5zbWlzc2lvbiBhbmQgemVyby13aW5kb3cgcHJvYmVzLgotIEFkZGVkIGFjdGl2ZSBUQ1AgY29ubmVjdGlvbnMgdG8gdGhlIGFwcCBzdGF0dXMgYW5kIGluY2x1ZGVkIGZ1bGwKICBJUHY0IFRDUCBwYWNrZXRzIGluIGJvdGggZGlyZWN0aW9ucyBpbiB0aGUgbG9jYWwgcmF3LUlQIFBDQVAgYW5kCiAgY2FwdHVyZWQgY291bnRlci4gT25seSBVRFAgZGF0YWdyYW1zIGdvIHRvIGAvYXBpL2NsaWVudC91cGxvYWRgIGZvcgogIHRoZSBIb25vciBvZiBLaW5ncyBsb2NhdGlvbiBwYXJzZXIuIFRDUCBsb2dpbiBhbmQgbWF0Y2htYWtpbmcgcGFja2V0cwogIHN0YXkgaW4gdGhlIFBDQVAuIElQdjYgc3RpbGwgYnlwYXNzZXMgY2FwdHVyZSBhbmQgSVB2NCBmcmFnbWVudHMgYXJlCiAgc3RpbGwgZHJvcHBlZC4KLSBLb3RsaW4gY29tcGlsZSBhbmQgb24tZGV2aWNlIHRlc3Qgbm90IHlldCBkb25lIC0gbXVzdCBiZSB2ZXJpZmllZCBieSBHaXRIdWIgQWN0aW9ucyBidWlsZC4KICBBbiBBbmRyb2lkIGRldmljZSBpcyBuZWVkZWQgdG8gdmVyaWZ5IGxpdmUgcmVsYXkgYmVoYXZpb3IgYWZ0ZXIgdGhlIGJ1aWxkLgoKIyMgdjAuNyDCtyAyMDI2LTExLTI2CgotIEFkZGVkIGB0b29scy9hbmFseXplX3BjYXAucHlgIChQeXRob24gMy4xMCsgc3RhbmRhcmQgbGlicmFyeSBvbmx5LCBubwogIHRzaGFyay9zY2FweSk6IHRvcCByZW1vdGUgSVBzL3BvcnRzIGJ5IHBhY2tldHMgYW5kIGJ5dGVzLCBVRFAgdnMgVENQCiAgc3BsaXQsIHBlci1mbG93IHBhY2tldCBzaXplcyBhbmQgdGltaW5nL3BwcywgbGlrZWx5IGdhbWUtc2VydmVyIGZsb3dzLAogIHBlci1zZWNvbmQgc3VtbWFyaWVzLCB3aXRoIGAtLWpzb25gIC8gYC0tdG9wYCAvIGAtLWxvY2FsLWlwYCBvcHRpb25zLgotIEFkZGVkIGB0b29scy9nZW5fdGVzdF9wY2FwLnB5YCB0byBnZW5lcmF0ZSBhIHN5bnRoZXRpYyBQQ0FQIHdpdGgga25vd24KICBncm91bmQgdHJ1dGggZm9yIHRlc3RpbmcgdGhlIGFuYWx5emVyLgotIFZlcmlmaWVkIG9uIHN5bnRoZXRpYyBQQ0FQczogb3V0cHV0IG1hdGNoZXMgdGhlIGtub3duIGlucHV0IGV4YWN0bHkKICAoMjMxIHBhY2tldHMgLyAzNSwxODggYnl0ZXMsIHRvcCBmbG93IDIwMCBwYWNrZXRzIC8gNTAuMjUgcHBzLCBvbmx5IHRoZQogIGhpZ2gtcmF0ZSBVRFAgZmxvdyBmbGFnZ2VkIGFzIGxpa2VseSBnYW1lIHNlcnZlcik7IGVtcHR5LCB0cnVuY2F0ZWQKICBhbmQgZ2FyYmFnZSBmaWxlcyBkbyBub3QgY3Jhc2guCi0gS25vd24gbGltaXRzOiBjbGFzc2ljIFBDQVAgb25seSwgbm90IHBjYXBuZzsgdGhlIGdhbWUtc2VydmVyIGhldXJpc3RpYwogICg+PSA1MCBwYWNrZXRzLCA+PSAxMCBwcHMsID49IDIgcyBVRFApIGlzIHVudmFsaWRhdGVkIG9uIHJlYWwgSG9ub3Igb2YKICBLaW5ncyB0cmFmZmljIHVudGlsIGEgcmVhbCBnYW1lIGNhcHR1cmUgaXMgYW5hbHl6ZWQuCgojIyB2MC44IMK3IDIwMjYtMTEtMjYKCi0gQWRkZWQgYFJBREFSX1JFRkVSRU5DRS5tZGA6IGRlZXAgYW5hbHlzaXMgb2YgdGhlIHJlZmVyZW5jZSBBUEsKICAoc25hcHNob3Qgc2NoZW1hLCBYLUtpdGUtU25hcHNob3Qgc2VtYW50aWNzLCBhcHAtY29uZmlnIGFuZCBub2RlcwogIHNjaGVtYXMsIGNvb3JkaW5hdGUvbWFwIG1hcHBpbmcsIGVudGl0eSBsaWZlY3ljbGUsIHVwbG9hZCB3aXJlIGZvcm1hdCwKICBzZXJ2ZXIgcmVxdWlyZW1lbnRzKSwgd2l0aCBBUEsgZXZpZGVuY2UgcGVyIGNsYWltIGFuZCBVTktOT1dOcyBtYXJrZWQuCi0gVXBkYXRlZCBgTEVBUk5JTkcubWRgIHdpdGggdGhlIFBoYXNlIDFiIGRlZXAtZGl2ZSBmaW5kaW5ncy4KLSBDb3JyZWN0aW9uOiB0aGUgc3VwcGxpZWQgQVBLIGlzIG5vdCA2NjIgUmFkYXIgMS4yLjUgLyBjb20ueGlhb2J1LmNsaWVudAogIGFzIGZpcnN0IGFzc3VtZWQ7IGl0cyBtYW5pZmVzdCBkZWNsYXJlcyBjb20ueGlhb2J1LmZlbmd6aGVuZyAxLjQuNwogICh2ZXJzaW9uQ29kZSAyMSksIFNIQS0yNTYKICAwZGRkNmI5NGJhNWJhY2E0NGRkNGU3OTdjZWI4YWZiYTcwNjU4OGNjOTFhNDVhNGIwNDdmYzYxOWJhZjU0N2EyLgogIEZpbmRpbmdzIGFwcGx5IHRvIHRoaXMgYnVpbGQ7IDEuMi41IGJlaGF2aW9yIGlzIFVOS05PV04uCi0gS2V5IGZpbmRpbmc6IHRoZSByZWZlcmVuY2UgY29udHJhY3QgZGlmZmVycyBmcm9tIG91ciB2MSBjb250cmFjdCDigJQKICByb29tLXNjb3BlZCBgR0VUIC92MS9yb29tcy97cm9vbX0vc25hcHNob3RgIGFuZAogIGBQT1NUIC92MS9yb29tcy97cm9vbX0vZGF0YWdyYW1zYCB3aXRoIGhleCBwYXlsb2FkcyBhbmQKICBgYWNjZXB0ZWRfYmF0Y2hgLCBgWC1LaXRlLVNuYXBzaG90OiByYWRhci12MWAgYXMgYSByZXF1ZXN0IGhlYWRlciwKICB2ZXJzdXMgb3VyIGAvc25hcHNob3RgICsgYC9hcGkvY2xpZW50L3VwbG9hZGAgd2l0aCBiYXNlNjQuIFdoZXRoZXIgdG8KICBhZGFwdCBvdXIgc2VydmVyIHRvIHRoZSByZWZlcmVuY2UgY29udHJhY3QgaXMgYW4gb3BlbiBkZXNpZ24gZGVjaXNpb24uCgoKIyMgdjAuOSDCtyAyMDI2LTExLTI2CgotIEFkZGVkIGBQQ0FQX0FOQUxZU0lTLm1kYCBhbmQgYSByZXByb2R1Y2libGUgc3RkbGliIHByb2JlIGZvciB0aGUgcmVhbAogIEhvbm9yIG9mIEtpbmdzIGNhcHR1cmUuIFJlcHJvZHVjZWQgdGhlIDkyLDU0NS1wYWNrZXQgYmFzZWxpbmUgYW5kCiAgbWVhc3VyZWQgMzIsNTc0IGRhdGFncmFtcyBvbiB0aGUgbGVhZGluZyBnYW1lcGxheSBjYW5kaWRhdGUuCi0gVmVyaWZpZWQgdHdvIGluY3JlbWVudGluZyBjb3VudGVycywgdGhyZWUgMSw0MDAtYnl0ZSBpbmJvdW5kIHBheWxvYWRzCiAgd2l0aCBhY3R1YWwgemVybyBmaWxsLCBhbmQgcGxhaW50ZXh0IEhUVFAgZ2FtZSByZXNvdXJjZSByYW5nZSBkb3dubG9hZHMuCi0gQWRkZWQgdGhlIG9mZmxpbmUgcGFyc2VyIGh5cG90aGVzaXMgYW5kIGZvdXIgcGFzc2luZyB1bml0IHRlc3RzLiBBCiAgZnVsbC1jYXB0dXJlIHNlbGYtY2hlY2sgbWF0Y2hlZCAzMiw1NzQgc2lnbmF0dXJlcyBhbmQgcHJvZHVjZWQgemVybwogIGVudGl0aWVzLiBQeXRob24gY29tcGlsYXRpb24gYW5kIGFuIGluLW1lbW9yeSB2MSBIVFRQIHNtb2tlIGNoZWNrIHBhc3NlZC4KLSBSZWNvcmRlZCB0aGUgZmluZGluZ3MgaW4gUGhhc2UgMWMgb2YgYExFQVJOSU5HLm1kYCBhbmQga2VwdCB0aGUgdjEKICBIVFRQIGNvbnRyYWN0LiBUaGUgY2FwdHVyZSBjb3ZlcnMgcGhvbmUtdG8tZ2FtZS1zZXJ2ZXIgdHJhZmZpYy4KCiMjIHYwLjkuMSDCtyAyMDI2LTExLTI2CgotIFJlbmFtZWQgdGhlIHBob25lIGFwcCdzIGRpc3BsYXkgbmFtZSBmcm9tICJLaXRlIENhcHR1cmUiIHRvICJLaXRlIgogIChgYW5kcm9pZDpsYWJlbGAgaW4gQW5kcm9pZE1hbmlmZXN0LnhtbCwgVlBOIHNlc3Npb24gbmFtZSBhbmQKICBub3RpZmljYXRpb24gdGl0bGUgaW4gQ2FwdHVyZVNlcnZpY2Uua3QsIGFuZHJvaWQvUkVBRE1FLm1kIHRpdGxlKS4KLSBQYWNrYWdlL2FwcGxpY2F0aW9uIGlkIGBjb20ua2l0ZS5jYXB0dXJlYCBpcyB1bmNoYW5nZWQsIHNvIGFuIGluc3RhbGxlZAogIGFwcCB1cGRhdGVzIGluIHBsYWNlLiBBcnRpZmFjdCBuYW1lIGBraXRlLWNhcHR1cmUtZGVidWdgLCBzZXJ2ZXIgYW5kCiAgQVBJIGNvbnRyYWN0IGFyZSB1bmNoYW5nZWQuCi0gTm90ZTogdGhlIGZpcnN0IEFjdGlvbnMgcnVuIGZvciB0aGlzIGNvbW1pdCAoIzgpIGZhaWxlZCBpbiAyMiBzIGF0CiAgIkFzc2VtYmxlIGRlYnVnIEFQSyIgd2l0aCBvbmx5IGV4aXQgY29kZSAxIHJlcG9ydGVkOyB0aGUgY2hhbmdlIGlzCiAgc3RyaW5nLW9ubHkgKGxhYmVsICsgdHdvIG5vdGlmaWNhdGlvbiBzdHJpbmdzICsgZG9jcykgYW5kIHRoZSBLb3RsaW4KICBmaWxlIHJlLWNoZWNrcyBiYWxhbmNlZCwgc28gdGhlIGZhaWx1cmUgbG9va3MgdHJhbnNpZW50LiBUaGlzIGNvbW1pdAogIHJlLXRyaWdnZXJzIHRoZSBidWlsZC4K
+# Changelog
+
+Append new versions below the existing milestones and preserve prior entries.
+
+## v0.1 · 2026-11-26
+
+- Documented the reference architecture, unresolved protocol questions and
+  v1 API design in `LEARNING.md` and `DESIGN.md`.
+- Verification scope was documentation review against the supplied APK
+  observations. No executable tests were recorded for this milestone.
+
+## v0.2 · 2026-11-26
+
+- Added the Python HTTP skeleton, parser stub, YAML configuration and systemd
+  unit under `server/`, with local startup in `README.md` and Ubuntu
+  installation in `DEPLOY.md`.
+- Python compilation, YAML defaults, environment overrides and in-memory HTTP
+  checks passed. Systemd unit verification exited zero with unrelated host
+  timer diagnostics. Socket creation was denied and local curl returned 7.
+
+## v0.3 · 2026-11-26
+
+- Documented the Beijing target at `39.96.60.127:18081`, wrapper-based
+  installation and health checks. Added this changelog and rollback guidance.
+- Re-ran Python compilation, configuration and override checks, systemd
+  verification and in-memory HTTP requests. Deployment shell syntax and archive
+  contents also passed local checks. The sandbox denied
+  local socket creation and local health curl returned 7. Beijing remains
+  pending operator verification.
+
+## v0.4 · 2026-11-26
+
+- Added Android capture app `android/` (Kite Capture, com.kite.capture,
+  minSdk 26, targetSdk 34): VpnService TUN, UDP-only relay, upload batches
+  to /api/client/upload, 2s /snapshot polling, local PCAP export.
+- Added GitHub Actions workflow `.github/workflows/build-apk.yml` to build
+  the debug APK (kite-capture-debug artifact). Fixed sdkmanager PATH with
+  android-actions/setup-android in Muse review before pushing.
+- Beijing deployment verified 2026-11-26 ~21:27 after security group TCP
+  18081 opened: /health ok, upload accepted 1 / revision 1.
+- Known limitation: IPv4 TCP from the selected app is BLOCKED during
+  capture, only unfragmented IPv4 UDP is relayed; Honor of Kings login
+  (TCP) may fail while capturing. Kotlin compile, Actions build and
+  on-device behaviour are untested until the first Actions run.
+
+## v0.5 · 2026-11-26
+
+- Persisted accepted uploads as daily UTC JSONL captures under
+  `/var/lib/hok-radar`, provisioned by the systemd unit's `StateDirectory`.
+- Added configurable 100 MiB per-file rotation and 500 MiB total retention,
+  with numeric suffixes and oldest-file deletion.
+- Added `GET /api/captures` to list files and `GET /api/captures/<name>`
+  to download them as NDJSON.
+- Verified live on Beijing 39.96.60.127:18081: upload accepted 1 /
+  revision 1, capture file on disk, survives service restart.
+
+## v0.6 · 2026-11-26
+
+- Added an IPv4 TCP relay for the selected app. An app SYN opens a
+  protected socket to the original destination with a 10-second connect
+  timeout. A successful connect sends SYN-ACK with MSS 1460 and a
+  65,535-byte receive window. The app ACK establishes the flow. App and
+  remote FINs half-close their respective directions, and resets or
+  socket errors tear down the flow.
+- Limited the relay to 32 concurrent connections with one worker per
+  connection and a 60-second idle timeout in either direction. Excess
+  connects and queue overflow reset the flow. The relay drops and re-ACKs
+  duplicate or out-of-order app data and caps each app queue at 64
+  MTU-sized segments. Remote data fits MTU 1500, the peer MSS, and the
+  peer window. The TUN leg repeats SYN-ACK on duplicate SYN and omits
+  data and FIN retransmission and zero-window probes.
+- Added active TCP connections to the app status and included full
+  IPv4 TCP packets in both directions in the local raw-IP PCAP and
+  captured counter. Only UDP datagrams go to `/api/client/upload` for
+  the Honor of Kings location parser. TCP login and matchmaking packets
+  stay in the PCAP. IPv6 still bypasses capture and IPv4 fragments are
+  still dropped.
+- Kotlin compile and on-device test not yet done - must be verified by GitHub Actions build.
+  An Android device is needed to verify live relay behavior after the build.
+
+## v0.7 · 2026-11-26
+
+- Added `tools/analyze_pcap.py` (Python 3.10+ standard library only, no
+  tshark/scapy): top remote IPs/ports by packets and bytes, UDP vs TCP
+  split, per-flow packet sizes and timing/pps, likely game-server flows,
+  per-second summaries, with `--json` / `--top` / `--local-ip` options.
+- Added `tools/gen_test_pcap.py` to generate a synthetic PCAP with known
+  ground truth for testing the analyzer.
+- Verified on synthetic PCAPs: output matches the known input exactly
+  (231 packets / 35,188 bytes, top flow 200 packets / 50.25 pps, only the
+  high-rate UDP flow flagged as likely game server); empty, truncated
+  and garbage files do not crash.
+- Known limits: classic PCAP only, not pcapng; the game-server heuristic
+  (>= 50 packets, >= 10 pps, >= 2 s UDP) is unvalidated on real Honor of
+  Kings traffic until a real game capture is analyzed.
+
+## v0.8 · 2026-11-26
+
+- Added `RADAR_REFERENCE.md`: deep analysis of the reference APK
+  (snapshot schema, X-Kite-Snapshot semantics, app-config and nodes
+  schemas, coordinate/map mapping, entity lifecycle, upload wire format,
+  server requirements), with APK evidence per claim and UNKNOWNs marked.
+- Updated `LEARNING.md` with the Phase 1b deep-dive findings.
+- Correction: the supplied APK is not 662 Radar 1.2.5 / com.xiaobu.client
+  as first assumed; its manifest declares com.xiaobu.fengzheng 1.4.7
+  (versionCode 21), SHA-256
+  0ddd6b94ba5baca44dd4e797ceb8afba706588cc91a45a4b047fc619baf547a2.
+  Findings apply to this build; 1.2.5 behavior is UNKNOWN.
+- Key finding: the reference contract differs from our v1 contract —
+  room-scoped `GET /v1/rooms/{room}/snapshot` and
+  `POST /v1/rooms/{room}/datagrams` with hex payloads and
+  `accepted_batch`, `X-Kite-Snapshot: radar-v1` as a request header,
+  versus our `/snapshot` + `/api/client/upload` with base64. Whether to
+  adapt our server to the reference contract is an open design decision.
+
+
+## v0.9 · 2026-11-26
+
+- Added `PCAP_ANALYSIS.md` and a reproducible stdlib probe for the real
+  Honor of Kings capture. Reproduced the 92,545-packet baseline and
+  measured 32,574 datagrams on the leading gameplay candidate.
+- Verified two incrementing counters, three 1,400-byte inbound payloads
+  with actual zero fill, and plaintext HTTP game resource range downloads.
+- Added the offline parser hypothesis and four passing unit tests. A
+  full-capture self-check matched 32,574 signatures and produced zero
+  entities. Python compilation and an in-memory v1 HTTP smoke check passed.
+- Recorded the findings in Phase 1c of `LEARNING.md` and kept the v1
+  HTTP contract. The capture covers phone-to-game-server traffic.
+
+## v0.9.1 · 2026-11-26
+
+- Renamed the phone app's display name from "Kite Capture" to "Kite"
+  (`android:label` in AndroidManifest.xml, VPN session name and
+  notification title in CaptureService.kt, android/README.md title).
+- Package/application id `com.kite.capture` is unchanged, so an installed
+  app updates in place. Artifact name `kite-capture-debug`, server and
+  API contract are unchanged.
+- Note: the first Actions run for this commit (#8) failed in 22 s at
+  "Assemble debug APK" with only exit code 1 reported; the change is
+  string-only (label + two notification strings + docs) and the Kotlin
+  file re-checks balanced, so the failure looks transient. This commit
+  re-triggers the build.
