@@ -1,8 +1,8 @@
 # Phase 1 · Reference architecture
 
-The supplied APK analysis identifies **662 Radar 1.2.5** (Android package
-`com.xiaobu.client`). The class names, endpoint paths and flow below come
-from that brief. The numeric reference hosts are omitted.
+The original brief identifies **662 Radar 1.2.5** and implementation classes
+under `com.xiaobu.client`. Phase 1b below records the supplied file’s manifest
+identity and supersedes the brief on the reference wire contract.
 
 ## Capture, forwarding and display
 
@@ -39,10 +39,46 @@ from that brief. The numeric reference hosts are omitted.
 
 ## Open questions and evidence needed
 
-| TODO | Evidence needed |
+| Question | Status and evidence |
 | --- | --- |
-| Honor of Kings UDP message boundaries, versioning, framing, compression and whether or how contents are encrypted | A protocol specification or authorized, versioned capture fixtures with known plaintext where available, expected decoded fields, and controlled session events. |
-| Entity identifiers, coordinate units and origin, update ordering, and despawn or reset semantics | Authorized fixtures paired with known entity positions and lifecycle events. |
-| APK upload wire format, including destination, transport, framing, metadata, retries and any authentication | Authorized inspection of the uploader and an upload exchange or protocol specification. The fact that it uploads game UDP datagrams does not establish the upload transport. |
-| Config, nodes and snapshot response schemas, and the direction, value and semantics of `X-Kite-Snapshot` | Authorized client call-site inspection and representative request and response fixtures. |
-| Packet selection and proxy versus direct routing | Authorized call-graph inspection and controlled flow traces identifying both traffic paths. |
+| Honor of Kings UDP message boundaries, versioning, framing, compression and encryption | **Open.** The APK shows the forwarded payload wrapper, but the game payload format requires an authorized capture fixture or protocol specification. [Q, G, U2] |
+| Entity identifiers, coordinates, ordering and despawn/reset | **Partially resolved.** The scene uses `entity_key` with `entity_id` fallback, normalized `map_pos.u/v`, stream/frame gating and list replacement. Game-world units/origin, authoritative identity and upstream despawn/reset policy remain open. [S1, S2, M] |
+| APK upload destination, transport, framing, metadata, retries and authentication | **Resolved for client behavior.** Room-scoped HTTP POST with bearer token, sequence-numbered JSON batches, hex/flow/direction/timestamp rows, file-backed retries and `accepted_batch`. Server replay and deduplication remain open. [U1–U4, Q, G] |
+| Config, nodes and snapshot schemas and `X-Kite-Snapshot` | **Resolved for the traced consumers.** App-config and nodes have separate schemas. Snapshots use the room-scoped endpoint with `X-Kite-Snapshot: radar-v1` and `X-Kite-Viewer-Active: 1` as request properties. Server enforcement and complete room bootstrap remain open. [C, N, S1, H, G] |
+| Packet selection and direct versus proxy routing | **Partially resolved.** The Java path wires DirectUdpGateway, with VPN app selection and native configuration routing TCP/DNS direct and other selected UDP to local SOCKS. End-to-end native filtering remains open. [G] |
+
+## Phase 1b · 662 Radar reference deep dive (APK evidence)
+
+The supplied APK's binary manifest declares `com.xiaobu.fengzheng`, version
+`1.4.7`, version code 21. The implementation classes use `com.xiaobu.client`.
+The evidence applies to this build. See [RADAR_REFERENCE.md](RADAR_REFERENCE.md)
+for the offset index, full field tables and asset inventory. [ID]
+
+- The viewer polls `/v1/rooms/{room}/snapshot` and sends
+  `X-Kite-Snapshot: radar-v1` and `X-Kite-Viewer-Active: 1`. It can send a
+  bearer token extracted from a validated viewer link. Normal cadence targets
+  66 ms from poll start. [H, P]
+- The scene requires an `entities` array. It checks each row's identity,
+  coordinates, stream, frame and type. It interpolates normalized positions
+  and replaces its entity list on advancing snapshots. Missing markers drop
+  out on replacement. Empty usable lists clear it. The staleness test uses
+  8 seconds since local advance. `snapshot_mono_ms` is diagnostic metadata.
+  [S1, S2, D, M]
+- App-config contains announcement and update metadata. The node directory
+  supplies controller identity, node origins, availability mode and optional
+  capacity/load readings. [C, N]
+- The writer spools numbered JSON batches. It posts to
+  `/v1/rooms/{room}/datagrams` and expects a numeric `accepted_batch`.
+  Each row carries hex payload, an opaque flow ID, `up`/`down` and a
+  wall-clock timestamp in seconds. [U1–U4, Q, G]
+- DirectUdpGateway forwards through protected sockets and mirrors eligible
+  UDP payloads to the uploader. The separately packaged MirrorGateway has
+  its own port filter. [G]
+- The map is 702 × 702, the atlas is 2048 × 2048 with 268 entries, and there
+  are 138 hero portraits. The view uses normalized coordinates and rotates
+  the map and markers together for the selected camp. [A, M, S2]
+
+`DESIGN.md` defines the workspace's separate v1 contract. This inspection
+documents the reference build’s contract. Analysis was local only, using
+archive inspection, strings and a Python DEX parser after an offline
+Androguard install failed. [RADAR_REFERENCE.md](RADAR_REFERENCE.md)

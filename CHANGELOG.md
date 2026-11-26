@@ -93,3 +93,22 @@ Append new versions below the existing milestones and preserve prior entries.
 - Known limits: classic PCAP only, not pcapng; the game-server heuristic
   (>= 50 packets, >= 10 pps, >= 2 s UDP) is unvalidated on real Honor of
   Kings traffic until a real game capture is analyzed.
+
+## v0.8 · 2026-11-26
+
+- Added `RADAR_REFERENCE.md`: deep analysis of the reference APK
+  (snapshot schema, X-Kite-Snapshot semantics, app-config and nodes
+  schemas, coordinate/map mapping, entity lifecycle, upload wire format,
+  server requirements), with APK evidence per claim and UNKNOWNs marked.
+- Updated `LEARNING.md` with the Phase 1b deep-dive findings.
+- Correction: the supplied APK is not 662 Radar 1.2.5 / com.xiaobu.client
+  as first assumed; its manifest declares com.xiaobu.fengzheng 1.4.7
+  (versionCode 21), SHA-256
+  0ddd6b94ba5baca44dd4e797ceb8afba706588cc91a45a4b047fc619baf547a2.
+  Findings apply to this build; 1.2.5 behavior is UNKNOWN.
+- Key finding: the reference contract differs from our v1 contract —
+  room-scoped `GET /v1/rooms/{room}/snapshot` and
+  `POST /v1/rooms/{room}/datagrams` with hex payloads and
+  `accepted_batch`, `X-Kite-Snapshot: radar-v1` as a request header,
+  versus our `/snapshot` + `/api/client/upload` with base64. Whether to
+  adapt our server to the reference contract is an open design decision.
