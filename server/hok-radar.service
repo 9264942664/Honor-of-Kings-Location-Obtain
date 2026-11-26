@@ -5,6 +5,7 @@ After=network.target
 [Service]
 Type=simple
 DynamicUser=yes
+StateDirectory=hok-radar
 WorkingDirectory=/opt/hok-radar
 Environment=RADAR_CONFIG=/etc/hok-radar/config.yaml
 ExecStart=/usr/bin/python3 /opt/hok-radar/main.py
