@@ -26,6 +26,7 @@ import kotlin.concurrent.thread
 internal class CaptureStatus(val file: File? = null) {
     val captured = AtomicLong()
     val uploaded = AtomicLong()
+    val tcpConnections = AtomicLong()
     val queueDrops = AtomicLong()
     @Volatile var snapshot: Snapshot? = null
     @Volatile var uploadError: String? = null
@@ -64,7 +65,7 @@ class CaptureService : VpnService() {
                 val next = Session(descriptor, ApiClient(origin), CaptureStatus(file))
                 session = next
                 next.report.busy = true
-                next.report.message = "Capturing IPv4 UDP"
+                next.report.message = "Capturing IPv4 UDP + TCP relay"
                 status = next.report
                 thread(name = "tun-capture") {
                     next.run()
@@ -149,13 +150,20 @@ class CaptureService : VpnService() {
                         }
                     }
                     val snapshots = thread(name = "capture-snapshot") { pollSnapshots() }
+                    val tcp = TcpRelay(
+                        protect = { protect(it) },
+                        emit = { writeTcp(pcap, it) },
+                        error = { if (active) report.relayError = it },
+                        count = { report.tcpConnections.set(it) },
+                    )
                     try {
-                        readTun(pcap)
+                        readTun(pcap, tcp)
                     } finally {
                         active = false
                         upload.interrupt()
                         snapshots.interrupt()
                         flows.values.forEach { it.close() }
+                        tcp.close()
                         // Wait for any reply already writing to TUN or the PCAP.
                         synchronized(outputLock) { tun.close() }
                     }
@@ -170,7 +178,7 @@ class CaptureService : VpnService() {
             }
         }
 
-        private fun readTun(pcap: PcapWriter) {
+        private fun readTun(pcap: PcapWriter, tcp: TcpRelay) {
             val descriptor = tun.fileDescriptor
             val poll = arrayOf(StructPollfd().apply {
                 fd = descriptor
@@ -178,6 +186,7 @@ class CaptureService : VpnService() {
             })
             val bytes = ByteArray(65535)
             while (active) {
+                tcp.tick()
                 if (Os.poll(poll, 250) == 0 || !active) continue
                 if ((poll[0].revents.toInt() and OsConstants.POLLIN) == 0) {
                     throw IOException("TUN is unavailable")
@@ -189,6 +198,23 @@ class CaptureService : VpnService() {
                     throw error
                 }
                 if (size <= 0) throw IOException("TUN closed")
+                if (size < 20 || (bytes[0].toInt() and 0xf0) != 0x40) continue
+                when (bytes[9].toInt()) {
+                    6 -> {
+                        val packet = TcpPacket.parse(bytes, size) ?: continue
+                        synchronized(outputLock) { recordTcp(pcap, bytes, packet.size) }
+                        try {
+                            tcp.accept(packet)
+                        } catch (error: IOException) {
+                            report.relayError = error.message ?: "TCP send failed"
+                        } catch (error: ErrnoException) {
+                            report.relayError = error.message ?: "TCP TUN write failed"
+                        }
+                        continue
+                    }
+                    17 -> Unit // Existing UDP capture and forwarding below.
+                    else -> continue
+                }
                 val packet = UdpPacket.parse(bytes, size) ?: continue
                 synchronized(outputLock) {
                     record(pcap, bytes, packet.payload.size + (bytes[0].toInt() and 15) * 4 + 8,
@@ -250,6 +276,29 @@ class CaptureService : VpnService() {
                 flows.remove(key, socket)
                 socket.close()
             }
+        }
+
+        private fun writeTcp(pcap: PcapWriter, reply: ByteArray) {
+            synchronized(outputLock) {
+                if (!active) return
+                if (Os.write(tun.fileDescriptor, reply, 0, reply.size) != reply.size) {
+                    throw IOException("Incomplete TCP TUN write")
+                }
+                try {
+                    recordTcp(pcap, reply, reply.size)
+                } catch (error: IOException) {
+                    pcapFailure = error
+                    active = false
+                    throw error
+                }
+            }
+        }
+
+        private fun recordTcp(pcap: PcapWriter, packet: ByteArray, size: Int) {
+            // TCP login and matchmaking packets stay in the PCAP. The upload API takes only
+            // UDP datagrams for the Honor of Kings location parser.
+            pcap.write(packet, size)
+            report.captured.incrementAndGet()
         }
 
         private fun record(pcap: PcapWriter, packet: ByteArray, size: Int, direction: String, payload: ByteArray) {

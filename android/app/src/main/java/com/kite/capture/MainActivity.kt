@@ -66,7 +66,7 @@ class MainActivity : Activity() {
         }
         root.addView(target)
         root.addView(TextView(this).apply {
-            text = "IPv4 UDP payloads are sent to the server. The selected app's IPv4 TCP traffic is blocked during capture."
+            text = "IPv4 UDP payloads are sent to the server. The selected app's IPv4 TCP traffic is relayed and saved in the PCAP."
         })
         val buttons = LinearLayout(this)
         start = Button(this).apply {
@@ -145,13 +145,13 @@ class MainActivity : Activity() {
         val status = CaptureService.status
         val snapshot = status.snapshot
         statusLine.text = "Captured ${status.captured.get()} · Uploaded ${status.uploaded.get()} · " +
-            "Revision ${snapshot?.revision ?: "—"} · Entities ${snapshot?.entityCount ?: "—"}"
+            "TCP active ${status.tcpConnections.get()} · Revision ${snapshot?.revision ?: "—"} · Entities ${snapshot?.entityCount ?: "—"}"
         details.text = listOfNotNull(
             status.message,
             status.file?.takeIf { it.isFile }?.name,
             status.uploadError?.let { "Upload: $it" },
             status.snapshotError?.let { "Snapshot: $it" },
-            status.relayError?.let { "UDP relay: $it" },
+            status.relayError?.let { "Relay: $it" },
             status.queueDrops.get().takeIf { it > 0 }?.let { "Upload queue drops: $it" },
         ).joinToString("\n")
         start.isEnabled = !status.busy

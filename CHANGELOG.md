@@ -53,3 +53,27 @@ Append new versions below the existing milestones and preserve prior entries.
   to download them as NDJSON.
 - Verified live on Beijing 39.96.60.127:18081: upload accepted 1 /
   revision 1, capture file on disk, survives service restart.
+
+## v0.6 · 2026-11-26
+
+- Added an IPv4 TCP relay for the selected app. An app SYN opens a
+  protected socket to the original destination with a 10-second connect
+  timeout. A successful connect sends SYN-ACK with MSS 1460 and a
+  65,535-byte receive window. The app ACK establishes the flow. App and
+  remote FINs half-close their respective directions, and resets or
+  socket errors tear down the flow.
+- Limited the relay to 32 concurrent connections with one worker per
+  connection and a 60-second idle timeout in either direction. Excess
+  connects and queue overflow reset the flow. The relay drops and re-ACKs
+  duplicate or out-of-order app data and caps each app queue at 64
+  MTU-sized segments. Remote data fits MTU 1500, the peer MSS, and the
+  peer window. The TUN leg repeats SYN-ACK on duplicate SYN and omits
+  data and FIN retransmission and zero-window probes.
+- Added active TCP connections to the app status and included full
+  IPv4 TCP packets in both directions in the local raw-IP PCAP and
+  captured counter. Only UDP datagrams go to `/api/client/upload` for
+  the Honor of Kings location parser. TCP login and matchmaking packets
+  stay in the PCAP. IPv6 still bypasses capture and IPv4 fragments are
+  still dropped.
+- Kotlin compile and on-device test not yet done - must be verified by GitHub Actions build.
+  An Android device is needed to verify live relay behavior after the build.
