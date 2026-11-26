@@ -27,3 +27,18 @@ Append new versions below the existing milestones and preserve prior entries.
   contents also passed local checks. The sandbox denied
   local socket creation and local health curl returned 7. Beijing remains
   pending operator verification.
+
+## v0.4 · 2026-11-26
+
+- Added Android capture app `android/` (Kite Capture, com.kite.capture,
+  minSdk 26, targetSdk 34): VpnService TUN, UDP-only relay, upload batches
+  to /api/client/upload, 2s /snapshot polling, local PCAP export.
+- Added GitHub Actions workflow `.github/workflows/build-apk.yml` to build
+  the debug APK (kite-capture-debug artifact). Fixed sdkmanager PATH with
+  android-actions/setup-android in Muse review before pushing.
+- Beijing deployment verified 2026-11-26 ~21:27 after security group TCP
+  18081 opened: /health ok, upload accepted 1 / revision 1.
+- Known limitation: IPv4 TCP from the selected app is BLOCKED during
+  capture, only unfragmented IPv4 UDP is relayed; Honor of Kings login
+  (TCP) may fail while capturing. Kotlin compile, Actions build and
+  on-device behaviour are untested until the first Actions run.
