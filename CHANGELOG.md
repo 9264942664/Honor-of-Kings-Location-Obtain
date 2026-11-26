@@ -112,3 +112,17 @@ Append new versions below the existing milestones and preserve prior entries.
   `accepted_batch`, `X-Kite-Snapshot: radar-v1` as a request header,
   versus our `/snapshot` + `/api/client/upload` with base64. Whether to
   adapt our server to the reference contract is an open design decision.
+
+
+## v0.9 · 2026-11-26
+
+- Added `PCAP_ANALYSIS.md` and a reproducible stdlib probe for the real
+  Honor of Kings capture. Reproduced the 92,545-packet baseline and
+  measured 32,574 datagrams on the leading gameplay candidate.
+- Verified two incrementing counters, three 1,400-byte inbound payloads
+  with actual zero fill, and plaintext HTTP game resource range downloads.
+- Added the offline parser hypothesis and four passing unit tests. A
+  full-capture self-check matched 32,574 signatures and produced zero
+  entities. Python compilation and an in-memory v1 HTTP smoke check passed.
+- Recorded the findings in Phase 1c of `LEARNING.md` and kept the v1
+  HTTP contract. The capture covers phone-to-game-server traffic.

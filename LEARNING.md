@@ -1,8 +1,8 @@
 # Phase 1 · Reference architecture
 
-The original brief identifies **662 Radar 1.2.5** and implementation classes
-under `com.xiaobu.client`. Phase 1b below records the supplied file’s manifest
-identity and supersedes the brief on the reference wire contract.
+The supplied reference APK is `com.xiaobu.fengzheng` 1.4.7 (versionCode 21),
+SHA-256 `0ddd6b94ba5baca44dd4e797ceb8afba706588cc91a45a4b047fc619baf547a2`.
+Phase 1b records its manifest and wire contract.
 
 ## Capture, forwarding and display
 
@@ -41,13 +41,13 @@ identity and supersedes the brief on the reference wire contract.
 
 | Question | Status and evidence |
 | --- | --- |
-| Honor of Kings UDP message boundaries, versioning, framing, compression and encryption | **Open.** The APK shows the forwarded payload wrapper, but the game payload format requires an authorized capture fixture or protocol specification. [Q, G, U2] |
+| Honor of Kings UDP message boundaries, versioning, framing, compression and encryption | **Partially resolved.** Phase 1c documents captured UDP boundaries, prefix families and two counters. General payload format, compression and encryption remain open. [Q, G, U2] |
 | Entity identifiers, coordinates, ordering and despawn/reset | **Partially resolved.** The scene uses `entity_key` with `entity_id` fallback, normalized `map_pos.u/v`, stream/frame gating and list replacement. Game-world units/origin, authoritative identity and upstream despawn/reset policy remain open. [S1, S2, M] |
 | APK upload destination, transport, framing, metadata, retries and authentication | **Resolved for client behavior.** Room-scoped HTTP POST with bearer token, sequence-numbered JSON batches, hex/flow/direction/timestamp rows, file-backed retries and `accepted_batch`. Server replay and deduplication remain open. [U1–U4, Q, G] |
 | Config, nodes and snapshot schemas and `X-Kite-Snapshot` | **Resolved for the traced consumers.** App-config and nodes have separate schemas. Snapshots use the room-scoped endpoint with `X-Kite-Snapshot: radar-v1` and `X-Kite-Viewer-Active: 1` as request properties. Server enforcement and complete room bootstrap remain open. [C, N, S1, H, G] |
 | Packet selection and direct versus proxy routing | **Partially resolved.** The Java path wires DirectUdpGateway, with VPN app selection and native configuration routing TCP/DNS direct and other selected UDP to local SOCKS. End-to-end native filtering remains open. [G] |
 
-## Phase 1b · 662 Radar reference deep dive (APK evidence)
+## Phase 1b · Reference APK deep dive
 
 The supplied APK's binary manifest declares `com.xiaobu.fengzheng`, version
 `1.4.7`, version code 21. The implementation classes use `com.xiaobu.client`.
@@ -82,3 +82,24 @@ for the offset index, full field tables and asset inventory. [ID]
 documents the reference build’s contract. Analysis was local only, using
 archive inspection, strings and a Python DEX parser after an offline
 Androguard install failed. [RADAR_REFERENCE.md](RADAR_REFERENCE.md)
+
+
+## Phase 1c · Real Honor of Kings PCAP
+
+- The baseline reproduced 92,545 packets across 928.233 s. The leading
+  gameplay candidate is UDP `180.102.99.167:10214` ↔ phone port 48605.
+  It carried 32,574 packets from t=58.950 to 879.488 s, with a rate
+  shift near t=120 s. Exact UI and game-event times are UNKNOWN.
+- The outbound `002dc15b` family has a +1 counter at offset 8. The inbound
+  `000b0000` family has a +1 modular LE uint16 at offset 6. The three
+  1,400-byte `00030000` inbound payloads each contain 1,395 real zero
+  bytes. Inbound data from offset 32 has 7.9892 bits/byte of pooled
+  entropy. Encoding, encryption and coordinate semantics remain UNKNOWN.
+- TCP sequence reassembly identified HTTP resource range downloads.
+  The concurrent 1,130-byte UDP bursts are bulk-transfer candidates
+  with no observed RTP headers. The long TCP 6644 tuple is a game
+  control candidate, and UDP 5010 has evidence of network-quality telemetry.
+- The offline parser checks the observed UDP tuple and signatures, reads
+  two counters and emits zero entities. Keep the current v1 API. The
+  capture contains phone-to-game-server traffic and cannot validate the
+  phone-to-parser HTTP contract. [PCAP_ANALYSIS.md](PCAP_ANALYSIS.md)
