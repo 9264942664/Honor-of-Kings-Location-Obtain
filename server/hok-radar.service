@@ -1,0 +1,19 @@
+[Unit]
+Description=Honor of Kings datagram intake prototype
+After=network.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+WorkingDirectory=/opt/hok-radar
+Environment=RADAR_CONFIG=/etc/hok-radar/config.yaml
+ExecStart=/usr/bin/python3 /opt/hok-radar/main.py
+Restart=on-failure
+RestartSec=3s
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
