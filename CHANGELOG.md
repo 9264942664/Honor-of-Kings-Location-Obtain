@@ -135,8 +135,10 @@ Append new versions below the existing milestones and preserve prior entries.
 - Package/application id `com.kite.capture` is unchanged, so an installed
   app updates in place. Artifact name `kite-capture-debug`, server and
   API contract are unchanged.
-- Note: the first Actions run for this commit (#8) failed in 22 s at
-  "Assemble debug APK" with only exit code 1 reported; the change is
-  string-only (label + two notification strings + docs) and the Kotlin
-  file re-checks balanced, so the failure looks transient. This commit
-  re-triggers the build.
+- Note: the first Actions runs for this rename (#8, #9) failed at
+  "Assemble debug APK" because the first push accidentally wrote the
+  files as base64 text instead of their real contents (wrong
+  `push_files` content encoding). The files were restored to their
+  correct text in 4c4faa9 and run #10 passed. Lesson: use the
+  `push-files` CLI, which snapshots local files directly, not
+  hand-built base64 in `--arguments-json`.
